@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Scheduler"
+config/name="Event Scheduler"
 run/main_scene="res://src/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
