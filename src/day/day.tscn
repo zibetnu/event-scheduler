@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://wvrs4a5oucf5"]
 
-[ext_resource type="PackedScene" path="res://src/slot/slot.tscn" id="1_eq2yu"]
+[ext_resource type="PackedScene" uid="uid://be7io54xjjgmf" path="res://src/slot/slot.tscn" id="1_eq2yu"]
 [ext_resource type="Script" path="res://src/day/day.gd" id="1_wrkys"]
 
 [node name="Day" type="PanelContainer"]
