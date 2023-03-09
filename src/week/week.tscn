@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://hyygtsatiju7"]
+
+[ext_resource type="PackedScene" path="res://src/day/day.tscn" id="1_4e2xe"]
+[ext_resource type="Script" path="res://src/week/week.gd" id="1_iflu1"]
+
+[node name="Week" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_iflu1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Day" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Sunday"
+
+[node name="Day2" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Monday"
+
+[node name="Day3" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Tuesday"
+
+[node name="Day4" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Wednesday"
+
+[node name="Day5" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Thursday"
+
+[node name="Day6" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Friday"
+
+[node name="Day7" parent="HBoxContainer" instance=ExtResource("1_4e2xe")]
+layout_mode = 2
+day_name = "Saturday"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnxfyn0rx1owm"]
+
+[ext_resource type="Script" path="res://src/main_menu/main_menu.gd" id="1_865dc"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_865dc")
+comparer_path = "res://src/schedule_comparer/schedule_comparer.tscn"
+maker_path = "res://src/schedule_maker/schedule_maker.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MakeSchedule" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Make a schedule"
+
+[node name="CompareSchedules" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Compare schedules"
+
+[connection signal="pressed" from="VBoxContainer/MakeSchedule" to="." method="_on_make_schedule_pressed"]
+[connection signal="pressed" from="VBoxContainer/CompareSchedules" to="." method="_on_compare_schedules_pressed"]

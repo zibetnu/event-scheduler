@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/slot/slot.gd" id="1_1itvu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4r3b"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy4ch"]
+size = Vector2(80, 32)
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 155.0
+offset_bottom = 26.0
+mouse_filter = 1
+script = ExtResource("1_1itvu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "12:34 AM"
+horizontal_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_o4r3b")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ValueLabel" type="Label" parent="HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+theme_override_constants/outline_size = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/PanelContainer/StaticBody2D"]
+position = Vector2(40, 16)
+shape = SubResource("RectangleShape2D_xy4ch")

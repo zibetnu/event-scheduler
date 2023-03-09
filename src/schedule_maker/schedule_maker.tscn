@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdnqgygaofqkl"]
+
+[ext_resource type="Script" path="res://src/schedule_maker/schedule_maker.gd" id="1_c2hbe"]
+[ext_resource type="PackedScene" path="res://src/toggler/toggler.tscn" id="2_7yngg"]
+[ext_resource type="PackedScene" uid="uid://hyygtsatiju7" path="res://src/week/week.tscn" id="2_n4aty"]
+
+[node name="ScheduleMaker" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2hbe")
+back_path = "res://src/main_menu/main_menu.tscn"
+
+[node name="Toggler" parent="." instance=ExtResource("2_7yngg")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Week" parent="HBoxContainer" instance=ExtResource("2_n4aty")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back"
+
+[node name="ExportButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Export"
+
+[node name="ExportPopup" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Copy the text below:"
+size = Vector2i(300, 200)
+ok_button_text = "Close"
+
+[node name="ExportText" type="TextEdit" parent="ExportPopup"]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 292.0
+offset_bottom = 151.0
+editable = false
+wrap_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
