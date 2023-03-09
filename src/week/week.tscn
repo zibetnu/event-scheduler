@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hyygtsatiju7"]
 
-[ext_resource type="PackedScene" path="res://src/day/day.tscn" id="1_4e2xe"]
+[ext_resource type="PackedScene" uid="uid://wvrs4a5oucf5" path="res://src/day/day.tscn" id="1_4e2xe"]
 [ext_resource type="Script" path="res://src/week/week.gd" id="1_iflu1"]
 
 [node name="Week" type="ScrollContainer"]
