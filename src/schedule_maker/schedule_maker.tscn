@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdnqgygaofqkl"]
 
 [ext_resource type="Script" path="res://src/schedule_maker/schedule_maker.gd" id="1_c2hbe"]
-[ext_resource type="PackedScene" path="res://src/toggler/toggler.tscn" id="2_7yngg"]
+[ext_resource type="PackedScene" uid="uid://bxyesfcquu10e" path="res://src/toggler/toggler.tscn" id="2_7yngg"]
 [ext_resource type="PackedScene" uid="uid://hyygtsatiju7" path="res://src/week/week.tscn" id="2_n4aty"]
 
 [node name="ScheduleMaker" type="ScrollContainer"]
@@ -39,16 +39,24 @@ text = "Export"
 
 [node name="ExportPopup" type="AcceptDialog" parent="."]
 unique_name_in_owner = true
-title = "Copy the text below:"
-size = Vector2i(300, 200)
+title = "Export Schedule"
+size = Vector2i(320, 240)
 ok_button_text = "Close"
 
-[node name="ExportText" type="TextEdit" parent="ExportPopup"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="ExportPopup"]
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 292.0
-offset_bottom = 151.0
+offset_right = 312.0
+offset_bottom = 191.0
+
+[node name="Label" type="Label" parent="ExportPopup/VBoxContainer"]
+layout_mode = 2
+text = "Copy the text below:"
+
+[node name="ExportText" type="TextEdit" parent="ExportPopup/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 editable = false
 wrap_mode = 1
 
