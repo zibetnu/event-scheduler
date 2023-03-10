@@ -55,6 +55,12 @@ offset_bottom = 151.0
 placeholder_text = "000000000000 000000000000 000000000000 000000000000 000000000000 000000000000 000000000000"
 wrap_mode = 1
 
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Invalid Schedule"
+size = Vector2i(877, 100)
+dialog_text = "Importer expects a schedule to be 7 space-separated sets of 12 characters, with each character being 0-9 or A-F."
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ImportButton" to="." method="_on_import_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/DisplayButton" to="." method="_on_display_button_pressed"]
