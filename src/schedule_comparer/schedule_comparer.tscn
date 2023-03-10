@@ -40,11 +40,11 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Display"
 
-[node name="ImportPopup" type="AcceptDialog" parent="."]
+[node name="ImportPopup" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
 title = "Import Schedule"
-size = Vector2i(300, 200)
-ok_button_text = "Close"
+size = Vector2i(320, 240)
+ok_button_text = "Import"
 
 [node name="ImportText" type="TextEdit" parent="ImportPopup"]
 unique_name_in_owner = true
