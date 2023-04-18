@@ -1,52 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyc6ra1cnhjux"]
+[gd_scene load_steps=3 format=3 uid="uid://5ikblwgd2qmc"]
 
-[ext_resource type="Script" path="res://src/schedule_comparer/schedule_comparer.gd" id="1_l6h4s"]
-[ext_resource type="PackedScene" uid="uid://hyygtsatiju7" path="res://src/week/week.tscn" id="2_syhcr"]
+[ext_resource type="PackedScene" uid="uid://duhev2d03crw3" path="res://src/schedule_screen/schedule_screen.tscn" id="1_aiul1"]
+[ext_resource type="Script" path="res://src/schedule_comparer/schedule_comparer.gd" id="2_fxjoe"]
 
-[node name="ScheduleComparer" type="ScrollContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_l6h4s")
-back_path = "res://src/main_menu/main_menu.tscn"
+[node name="ScheduleComparer" instance=ExtResource("1_aiul1")]
+script = ExtResource("2_fxjoe")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Week" parent="HBoxContainer" instance=ExtResource("2_syhcr")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Back"
-
-[node name="ImportButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="ImportButton" type="Button" parent="HBoxContainer/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Import
 "
 
-[node name="DisplayButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="DisplayButton" type="Button" parent="HBoxContainer/VBoxContainer" index="2"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Display"
 
-[node name="ImportPopup" type="ConfirmationDialog" parent="."]
+[node name="ImportPopup" type="ConfirmationDialog" parent="." index="1"]
 unique_name_in_owner = true
 title = "Import Schedule"
 size = Vector2i(320, 240)
 ok_button_text = "Import"
 
-[node name="ImportText" type="TextEdit" parent="ImportPopup"]
+[node name="ImportText" type="TextEdit" parent="ImportPopup" index="3"]
 unique_name_in_owner = true
 offset_left = 8.0
 offset_top = 8.0
@@ -55,13 +32,12 @@ offset_bottom = 151.0
 placeholder_text = "000000000000 000000000000 000000000000 000000000000 000000000000 000000000000 000000000000"
 wrap_mode = 1
 
-[node name="ErrorDialog" type="AcceptDialog" parent="."]
+[node name="ErrorDialog" type="AcceptDialog" parent="." index="2"]
 unique_name_in_owner = true
 title = "Invalid Schedule"
 size = Vector2i(877, 100)
 dialog_text = "Importer expects a schedule to be 7 space-separated sets of 12 characters, with each character being 0-9 or A-F."
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ImportButton" to="." method="_on_import_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/DisplayButton" to="." method="_on_display_button_pressed"]
 [connection signal="confirmed" from="ImportPopup" to="." method="_on_import_popup_confirmed"]
