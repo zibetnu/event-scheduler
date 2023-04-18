@@ -6,18 +6,18 @@
 [node name="ScheduleComparer" instance=ExtResource("1_aiul1")]
 script = ExtResource("2_fxjoe")
 
-[node name="ImportButton" type="Button" parent="HBoxContainer/VBoxContainer" index="1"]
+[node name="ImportButton" type="Button" parent="ScrollContainer/ButtonContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Import
 "
 
-[node name="DisplayButton" type="Button" parent="HBoxContainer/VBoxContainer" index="2"]
+[node name="DisplayButton" type="Button" parent="ScrollContainer/ButtonContainer" index="2"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Display"
 
-[node name="ImportPopup" type="ConfirmationDialog" parent="." index="1"]
+[node name="ImportPopup" type="ConfirmationDialog" parent="." index="2"]
 unique_name_in_owner = true
 title = "Import Schedule"
 size = Vector2i(320, 240)
@@ -32,12 +32,12 @@ offset_bottom = 151.0
 placeholder_text = "000000000000 000000000000 000000000000 000000000000 000000000000 000000000000 000000000000"
 wrap_mode = 1
 
-[node name="ErrorDialog" type="AcceptDialog" parent="." index="2"]
+[node name="ErrorDialog" type="AcceptDialog" parent="." index="3"]
 unique_name_in_owner = true
 title = "Invalid Schedule"
 size = Vector2i(877, 100)
 dialog_text = "Importer expects a schedule to be 7 space-separated sets of 12 characters, with each character being 0-9 or A-F."
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/ImportButton" to="." method="_on_import_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/DisplayButton" to="." method="_on_display_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/ButtonContainer/ImportButton" to="." method="_on_import_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/ButtonContainer/DisplayButton" to="." method="_on_display_button_pressed"]
 [connection signal="confirmed" from="ImportPopup" to="." method="_on_import_popup_confirmed"]

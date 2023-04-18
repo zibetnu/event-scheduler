@@ -9,12 +9,12 @@ script = ExtResource("2_73vg4")
 
 [node name="Toggler" parent="." index="0" instance=ExtResource("3_s020a")]
 
-[node name="ExportButton" type="Button" parent="HBoxContainer/VBoxContainer" index="1"]
+[node name="ExportButton" type="Button" parent="ScrollContainer/ButtonContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Export"
 
-[node name="ExportPopup" type="AcceptDialog" parent="." index="2"]
+[node name="ExportPopup" type="AcceptDialog" parent="." index="3"]
 unique_name_in_owner = true
 title = "Export Schedule"
 size = Vector2i(320, 240)
@@ -37,4 +37,4 @@ size_flags_vertical = 3
 editable = false
 wrap_mode = 1
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/ButtonContainer/ExportButton" to="." method="_on_export_button_pressed"]
