@@ -23,7 +23,7 @@ func _on_import_popup_confirmed() -> void:
 				return
 
 	var i := 0
-	for day in %Week.get_days():
+	for day in %DayContainer.get_children():
 		day.add_day_hex_string(day_hex_strings[i])
 		i += 1
 
@@ -31,5 +31,5 @@ func _on_import_popup_confirmed() -> void:
 
 
 func _on_display_button_pressed() -> void:
-	for day in %Week.get_days():
+	for day in %DayContainer.get_children():
 		day.display_day_hex_strings()

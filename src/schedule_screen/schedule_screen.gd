@@ -1,5 +1,5 @@
 class_name ScheduleScreen
-extends ScrollContainer
+extends Control
 
 
 @export var back_path: String
