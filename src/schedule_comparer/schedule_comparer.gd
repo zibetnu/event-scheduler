@@ -25,11 +25,7 @@ func _on_import_popup_confirmed() -> void:
 	var i := 0
 	for day in %DayContainer.get_children():
 		day.add_day_hex_string(day_hex_strings[i])
+		day.display_day_hex_strings()
 		i += 1
 
 	%ImportText.text = ""
-
-
-func _on_display_button_pressed() -> void:
-	for day in %DayContainer.get_children():
-		day.display_day_hex_strings()
