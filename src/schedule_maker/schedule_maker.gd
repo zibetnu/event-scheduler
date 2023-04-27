@@ -13,3 +13,7 @@ func _on_export_button_pressed() -> void:
 
 	%ExportText.text = export_string
 	%ExportPopup.popup_centered()
+
+
+func _on_export_popup_confirmed() -> void:
+	DisplayServer.clipboard_set(%ExportText.text)
