@@ -14,11 +14,13 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Export"
 
-[node name="ExportPopup" type="AcceptDialog" parent="." index="3"]
+[node name="ExportPopup" type="ConfirmationDialog" parent="." index="3"]
 unique_name_in_owner = true
 title = "Export Schedule"
 size = Vector2i(320, 240)
-ok_button_text = "Close"
+ok_button_text = "Copy"
+dialog_hide_on_ok = false
+cancel_button_text = "Close"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ExportPopup" index="3"]
 offset_left = 8.0
@@ -38,3 +40,4 @@ editable = false
 wrap_mode = 1
 
 [connection signal="pressed" from="ScrollContainer/ButtonContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="confirmed" from="ExportPopup" to="." method="_on_export_popup_confirmed"]
