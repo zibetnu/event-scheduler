@@ -6,8 +6,6 @@ extends PanelContainer
 @onready var _day_label := %DayLabel
 @onready var _slots := %Slots.get_children()
 
-var _day_hex_strings: Array[String] = []
-
 
 func _ready() -> void:
 	_day_label.text = day_name
@@ -24,28 +22,21 @@ func _ready() -> void:
 		i += 1
 
 
-func add_day_hex_string(day_hex_string: String) -> void:
-	_day_hex_strings.append(day_hex_string)
+func display_day_arrays(day_arrays: Array) -> void:
+	var slot_values: Array[int] = []
+	slot_values.resize(_slots.size())
+	slot_values.fill(0)
+
+	for day_array in day_arrays:
+		var i := 0
+		while i < day_array.size() and i < slot_values.size():
+			slot_values[i] += int(day_array[i])
+			i += 1
+
+	var max_value := day_arrays.size()
+	for i in range(slot_values.size()):
+		_slots[i].set_value(slot_values[i], max_value)
 
 
-func get_day_hex_string() -> String:
-	var bit_string := ""
-	for slot in _slots:
-		bit_string += str(int(slot.is_selected()))
-
-	return BitHexConverter.bits_to_hex(bit_string)
-
-
-func display_day_hex_strings() -> void:
-	var day_bit_strings: Array[String] = []
-	for day_hex_string in _day_hex_strings:
-		day_bit_strings.append(BitHexConverter.hex_to_bits(day_hex_string))
-
-	var i := 0
-	for slot in _slots:
-		var value := 0
-		for day_bit_string in day_bit_strings:
-			value += int(day_bit_string[i])
-
-		slot.set_value(value, len(_day_hex_strings))
-		i += 1
+func get_day_array() -> Array:
+	return _slots.map(func(slot): return slot.is_selected())

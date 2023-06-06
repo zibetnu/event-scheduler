@@ -14,10 +14,6 @@ config/name="Event Scheduler"
 run/main_scene="res://src/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
-[autoload]
-
-BitHexConverter="*res://src/bit_hex_converter.gd"
-
 [display]
 
 window/size/viewport_width=1280

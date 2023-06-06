@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csg4ihagslanh"]
+
+[ext_resource type="Script" path="res://src/schedule_serializers/space_separated_hex/space_separated_hex.gd" id="1_2eqyl"]
+
+[node name="SpaceSeparatedHex" type="Node"]
+script = ExtResource("1_2eqyl")
