@@ -32,7 +32,11 @@ offset_bottom = 191.0
 layout_mode = 2
 text = "Copy the text below:"
 
-[node name="ExportText" type="TextEdit" parent="ExportPopup/VBoxContainer" index="1"]
+[node name="SerializerSelector" type="OptionButton" parent="ExportPopup/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExportText" type="TextEdit" parent="ExportPopup/VBoxContainer" index="2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -41,3 +45,4 @@ wrap_mode = 1
 
 [connection signal="pressed" from="ScrollContainer/ButtonContainer/ExportButton" to="." method="_on_export_button_pressed"]
 [connection signal="confirmed" from="ExportPopup" to="." method="_on_export_popup_confirmed"]
+[connection signal="item_selected" from="ExportPopup/VBoxContainer/SerializerSelector" to="." method="_on_serializer_selector_item_selected"]
