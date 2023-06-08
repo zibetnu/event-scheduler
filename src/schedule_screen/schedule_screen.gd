@@ -18,6 +18,9 @@ func _get_serializers_at(path: String) -> Array[ScheduleSerializer]:
 		serializers.append_array(_get_serializers_at(path + dir_name + "/"))
 
 	for file_name in DirAccess.get_files_at(path):
+		# https://github.com/godotengine/godot/issues/66014
+		file_name = file_name.trim_suffix(".remap")
+
 		var file := load(path + file_name)
 		if not file.is_class("PackedScene"):
 			continue
