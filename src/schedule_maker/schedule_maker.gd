@@ -21,7 +21,7 @@ func _on_export_popup_confirmed() -> void:
 	DisplayServer.clipboard_set(%ExportText.text)
 
 
-func _on_serializer_selector_item_selected(index: int) -> void:
+func _on_serializer_selector_item_selected(_index: int) -> void:
 	_update_export_text()
 
 

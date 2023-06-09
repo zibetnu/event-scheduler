@@ -14,6 +14,7 @@ func _ready() -> void:
 	var minutes := ["00", "30"]
 	var meridians := ["AM", "PM"]
 	for slot in _slots:
+		@warning_ignore("integer_division")  # The use of integer division is intentional.
 		slot.set_time_label("%2s:%s %s" % [
 				hours[(i / len(minutes)) % len(hours)],
 				minutes[i % len(minutes)],
