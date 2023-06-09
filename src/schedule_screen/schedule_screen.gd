@@ -10,6 +10,11 @@ extends Control
 @onready var _serializers := _get_serializers_at(serializers_path)
 
 
+func _exit_tree() -> void:
+	for serializer in _serializers:
+		serializer.queue_free()
+
+
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file(back_path)
 
