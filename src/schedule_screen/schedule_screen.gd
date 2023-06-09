@@ -5,6 +5,8 @@ extends Control
 @export var back_path: String
 @export var serializers_path := "res://src/schedule_serializers/"
 
+# _serializers is used in scripts that extend ScheduleScreen.
+@warning_ignore("unused_private_class_variable")
 @onready var _serializers := _get_serializers_at(serializers_path)
 
 
@@ -13,7 +15,7 @@ func _on_back_button_pressed() -> void:
 
 
 func _get_serializers_at(path: String) -> Array[ScheduleSerializer]:
-	var serializers: Array[ScheduleSerializer]
+	var serializers: Array[ScheduleSerializer] = []
 	for dir_name in DirAccess.get_directories_at(path):
 		serializers.append_array(_get_serializers_at(path + dir_name + "/"))
 
